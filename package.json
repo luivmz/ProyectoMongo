@@ -1,0 +1,16 @@
+{
+  "name": "sistema-venta-computadoras",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Proyecto académico simple con Express y MongoDB",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "mongodb": "^7.7.0"
+  }
+}

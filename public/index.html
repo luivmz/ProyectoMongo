@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema de Venta de Computadoras</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Sistema de Venta de Computadoras</h1>
+    <p>Proyecto académico · MongoDB</p>
+    <nav aria-label="Secciones"><a href="#productos">Productos</a><a href="#clientes">Clientes</a><a href="#ventas">Ventas</a></nav>
+  </header>
+  <main>
+    <p id="mensaje" role="status" aria-live="polite">Cargando datos…</p>
+    <section id="productos">
+      <h2>Productos</h2>
+      <form id="form-producto" class="campos">
+        <label>Nombre<input name="nombre" required></label>
+        <label>Precio (S/)<input name="precio" type="number" min="0" step="0.01" required></label>
+        <label>Marca<input name="marca" required></label>
+        <label>Categoría<input name="categoria" required></label>
+        <button type="submit">Registrar producto</button>
+      </form>
+      <div class="tabla"><table><thead><tr><th>Nombre</th><th>Marca</th><th>Categoría</th><th>Precio</th></tr></thead><tbody id="lista-productos"></tbody></table></div>
+    </section>
+    <section id="clientes">
+      <h2>Clientes</h2>
+      <form id="form-cliente" class="campos">
+        <label>Nombre<input name="nombre" required></label>
+        <label>DNI<input name="dni" inputmode="numeric" pattern="[0-9]{8}" maxlength="8" title="8 dígitos" required></label>
+        <button type="submit">Registrar cliente</button>
+      </form>
+      <div class="tabla"><table><thead><tr><th>Nombre</th><th>DNI</th></tr></thead><tbody id="lista-clientes"></tbody></table></div>
+    </section>
+    <section id="ventas">
+      <h2>Ventas</h2>
+      <form id="form-venta">
+        <label>Cliente<select id="cliente-venta" required></select></label>
+        <div class="campos seleccion-producto">
+          <label>Producto<select id="producto-venta"></select></label>
+          <label>Cantidad<input id="cantidad-venta" type="number" min="1" step="1" value="1"></label>
+          <button id="agregar-producto" type="button">Agregar producto</button>
+        </div>
+        <div class="tabla"><table><thead><tr><th>Producto</th><th>Cantidad</th><th>Precio</th><th>Subtotal</th><th>Acción</th></tr></thead><tbody id="detalle-venta"></tbody></table></div>
+        <p class="total">Total estimado: <strong id="total-venta">S/ 0.00</strong></p>
+        <p class="ayuda">El servidor confirma los precios y calcula el total al guardar.</p>
+        <button type="submit">Guardar venta</button>
+      </form>
+      <h3>Ventas registradas</h3>
+      <div class="tabla"><table><thead><tr><th>Fecha</th><th>Cliente</th><th>Productos</th><th>Total</th></tr></thead><tbody id="lista-ventas"></tbody></table></div>
+    </section>
+  </main>
+</body>
+</html>
